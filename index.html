@@ -3,60 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فرم ثبت پرداخت</title>
+    <title>فرم پرداخت</title>
 </head>
 <body>
-
-    <h2>فرم ثبت پرداخت</h2>
+    <h2>فرم ارسال اطلاعات پرداخت</h2>
     <form id="paymentForm">
-        <label for="tenant_name">نام مستأجر:</label>
-        <input type="text" id="tenant_name" name="tenant_name" required><br><br>
+        <label>شماره واحد:</label>
+        <input type="text" name="unit_number" required><br>
 
-        <label for="owner_name">نام مالک:</label>
-        <input type="text" id="owner_name" name="owner_name" required><br><br>
+        <label>نام مستأجر:</label>
+        <input type="text" name="tenant_name" required><br>
 
-        <label for="unit_number">شماره واحد:</label>
-        <input type="text" id="unit_number" name="unit_number" required><br><br>
+        <label>نام مالک:</label>
+        <input type="text" name="owner_name" required><br>
 
-        <label for="payment_amount">مبلغ پرداختی:</label>
-        <input type="text" id="payment_amount" name="payment_amount" required><br><br>
+        <label>مبلغ پرداختی:</label>
+        <input type="number" name="payment_amount" required><br>
 
-        <label for="payment_date">تاریخ پرداخت:</label>
-        <input type="date" id="payment_date" name="payment_date" required><br><br>
+        <label>تاریخ پرداخت:</label>
+        <input type="date" name="payment_date" required><br>
 
-        <label for="receipt">آپلود رسید پرداخت:</label>
-        <input type="file" id="receipt" name="receipt" required><br><br>
+        <label>شماره موبایل:</label>
+        <input type="text" name="phone_number" required><br>
 
-        <label for="phone_number">شماره موبایل:</label>
-        <input type="text" id="phone_number" name="phone_number" required><br><br>
+        <label>توضیحات:</label>
+        <textarea name="comments"></textarea><br>
 
-        <label for="comments">توضیحات (اختیاری):</label>
-        <textarea id="comments" name="comments"></textarea><br><br>
-
-        <button type="submit">ثبت اطلاعات</button>
+        <button type="submit">ارسال</button>
     </form>
 
     <script>
         document.getElementById("paymentForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            // دریافت داده‌های فرم
-            var formData = new FormData(this);
-
-            // ارسال داده‌ها به Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbybAEn49TT9Yxe1u4U0aEfhZybIKTyl-wlFTYdTrIMg-WODf7m9EGSwiEU4M0w3bn8sig/exec', {
-                method: 'POST',
-                body: formData
+            event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+            
+            const formData = new FormData(this);
+            const url = "https://script.google.com/macros/s/AKfycbwKRhC1jqFZ-LQsM7J67MwjxBHizQ_nJkM8AwxKzGxJsFjEpUcCGaiEfYMpDhK11oNnkQ/exec"; // لینک Web App خود را اینجا جایگذاری کنید
+            
+            fetch(url, {
+                method: "POST",
+                body: new URLSearchParams(formData)
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
-                alert('اطلاعات با موفقیت ارسال شد!');
+                alert("اطلاعات با موفقیت ارسال شد!");
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error("Error:", error);
             });
         });
     </script>
-
 </body>
 </html>
