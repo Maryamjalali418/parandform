@@ -1,22 +1,30 @@
-const url = "https://script.google.com/macros/s/AKfycbwKgt4bhDv_nOUWJolMp74_rymNRwRwN08O-NYeRFIg/dev";  // لینک جدید Web App را اینجا بگذار
+const form = document.getElementById("yourFormId");
 
-document.getElementById("paymentForm").addEventListener("submit", function(event) {
-  event.preventDefault();  // جلوگیری از ریفرش شدن صفحه
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  let formData = new FormData(this);
-  let params = new URLSearchParams(formData).toString();
+    let data = {
+        unit_number: document.getElementById("unitNumber").value,
+        tenant_name: document.getElementById("tenantName").value,
+        owner_name: document.getElementById("ownerName").value,
+        payment_amount: document.getElementById("paymentAmount").value,
+        payment_date: document.getElementById("paymentDate").value,
+        phone_number: document.getElementById("phoneNumber").value,
+        comments: document.getElementById("comments").value
+    };
 
-  console.log("Sending data:", params);
-
-  fetch(url, {
-    method: "POST",
-    body: params,
-    headers: { "Content-Type": "application/x-www-form-urlencoded" }
-  })
-  .then(response => response.text())
-  .then(data => {
-    console.log("Response from server:", data);
-    alert(data);
-  })
-  .catch(error => console.error("Error:", error));
+    fetch("https://script.google.com/macros/s/AKfycbwKgt4bhDv_nOUWJolMp74_rymNRwRwN08O-NYeRFIg/dev", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Success:", data);
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
 });
