@@ -13,7 +13,7 @@ form.addEventListener("submit", function (event) {
         comments: document.getElementById("comments").value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbzuDBZybqcXqJUKeua2By30mRG2cBL57EGG4oiI6WZsYEx2xAkObziNPDzBVY3lU3j8pQ/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbz5bvHRcPo9kjfCKSWPUxZkEulMy8BN35AfkPz4ClaSZQ7w5rZ3TEW52JK6Cz-zUCL1TA/exec", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
