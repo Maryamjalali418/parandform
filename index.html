@@ -1,54 +1,9 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فرم پرداخت</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: right;
-            max-width: 400px;
-            margin: auto;
-        }
-        label, input, textarea {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h2>فرم ثبت پرداخت</h2>
-    <form id="paymentForm">
-        <label for="unit_number">شماره واحد:</label>
-        <input type="text" id="unit_number" name="unit_number" required>
+<form id="dataForm">
+  <label for="name">نام:</label>
+  <input type="text" id="name" name="name" required><br><br>
+  
+  <label for="unitNumber">شماره واحد:</label>
+  <input type="text" id="unitNumber" name="unitNumber" required><br><br>
 
-        <label for="tenant_name">نام مستاجر:</label>
-        <input type="text" id="tenant_name" name="tenant_name" required>
-
-        <label for="owner_name">نام مالک:</label>
-        <input type="text" id="owner_name" name="owner_name" required>
-
-        <label for="payment_amount">مبلغ پرداختی:</label>
-        <input type="number" id="payment_amount" name="payment_amount" required>
-
-        <label for="payment_date">تاریخ پرداخت:</label>
-        <input type="date" id="payment_date" name="payment_date" required>
-
-        <label for="receipt">رسید پرداخت:</label>
-        <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
-
-        <label for="phone_number">شماره موبایل:</label>
-        <input type="text" id="phone_number" name="phone_number" required>
-
-        <label for="comments">توضیحات:</label>
-        <textarea id="comments" name="comments"></textarea>
-
-        <button type="submit">ارسال</button>
-    </form>
-
-    <script src="script.js"></script>
-</body>
-</html>
+  <button type="submit">ارسال</button>
+</form>
