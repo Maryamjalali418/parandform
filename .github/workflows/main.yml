@@ -1,0 +1,28 @@
+name: Form Submission Handler
+
+on:
+  repository_dispatch:
+    types: [submit_form]
+
+jobs:
+  process_form:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Send data to Google Sheets
+      run: node sendToGoogleSheets.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
