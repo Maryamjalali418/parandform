@@ -1,4 +1,4 @@
-const form = document.getElementById("yourFormId");
+const form = document.getElementById("paymentForm");
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
