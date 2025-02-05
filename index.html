@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم ثبت پرداخت</title>
+</head>
+<body>
+
+    <h2>فرم ثبت پرداخت</h2>
+    <form id="paymentForm">
+        <label for="tenant_name">نام مستأجر:</label>
+        <input type="text" id="tenant_name" name="tenant_name" required><br><br>
+
+        <label for="owner_name">نام مالک:</label>
+        <input type="text" id="owner_name" name="owner_name" required><br><br>
+
+        <label for="unit_number">شماره واحد:</label>
+        <input type="text" id="unit_number" name="unit_number" required><br><br>
+
+        <label for="payment_amount">مبلغ پرداختی:</label>
+        <input type="text" id="payment_amount" name="payment_amount" required><br><br>
+
+        <label for="payment_date">تاریخ پرداخت:</label>
+        <input type="date" id="payment_date" name="payment_date" required><br><br>
+
+        <label for="receipt">آپلود رسید پرداخت:</label>
+        <input type="file" id="receipt" name="receipt" required><br><br>
+
+        <label for="phone_number">شماره موبایل:</label>
+        <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+        <label for="comments">توضیحات (اختیاری):</label>
+        <textarea id="comments" name="comments"></textarea><br><br>
+
+        <button type="submit">ثبت اطلاعات</button>
+    </form>
+
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // دریافت داده‌های فرم
+            var formData = new FormData(this);
+
+            // ارسال داده‌ها به Google Apps Script
+            fetch('https://script.google.com/macros/s/your_script_id/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('اطلاعات با موفقیت ارسال شد!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+
+</body>
+</html>
