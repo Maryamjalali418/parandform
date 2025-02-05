@@ -13,7 +13,7 @@ form.addEventListener("submit", function (event) {
         comments: document.getElementById("comments").value          // اصلاح
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbznVUkZ5-Ai9NHnNK-vGLV4H9tgg3Ac6h3EruEpxW7vvy8RuwAa61qbKJUc8BWOcBqRsQ/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwKgt4bhDv_nOUWJolMp74_rymNRwRwN08O-NYeRFIg/dev", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
