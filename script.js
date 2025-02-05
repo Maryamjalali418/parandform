@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbxZi2Mmrd6v6k_ocO3mUjQpSp8bNRWT5D4E1b5ZYsIINp3VDTwSftEq86G0fSdZEzIXtg/exec";  // لینک جدید Web App را اینجا بگذار
+const url = "https://script.google.com/macros/s/AKfycbwKgt4bhDv_nOUWJolMp74_rymNRwRwN08O-NYeRFIg/dev";  // لینک جدید Web App را اینجا بگذار
 
 document.getElementById("paymentForm").addEventListener("submit", function(event) {
   event.preventDefault();  // جلوگیری از ریفرش شدن صفحه
