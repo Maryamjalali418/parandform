@@ -4,19 +4,22 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     let data = {
-        unit_number: document.getElementById("unit_number").value,   // اصلاح
-        tenant_name: document.getElementById("tenant_name").value,   // اصلاح
-        owner_name: document.getElementById("owner_name").value,     // اصلاح
-        payment_amount: document.getElementById("payment_amount").value, // اصلاح
-        payment_date: document.getElementById("payment_date").value,   // اصلاح
-        phone_number: document.getElementById("phone_number").value,   // اصلاح
-        comments: document.getElementById("comments").value          // اصلاح
+        unit_number: document.getElementById("unit_number").value,
+        tenant_name: document.getElementById("tenant_name").value,
+        owner_name: document.getElementById("owner_name").value,
+        payment_amount: document.getElementById("payment_amount").value,
+        payment_date: document.getElementById("payment_date").value,
+        phone_number: document.getElementById("phone_number").value,
+        comments: document.getElementById("comments").value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbwKgt4bhDv_nOUWJolMp74_rymNRwRwN08O-NYeRFIg/dev", {
+    fetch("https://script.google.com/macros/s/AKfycbzvrtyh8HBOhpwufd3-RYz9VrriuJwDOR4PBChyBHuACHqNid9cJYxLx5W1PjyjxvTysw/exec", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
         },
         body: JSON.stringify(data)
     })
