@@ -4,13 +4,13 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     let data = {
-        unit_number: document.getElementById("unitNumber").value,
-        tenant_name: document.getElementById("tenantName").value,
-        owner_name: document.getElementById("ownerName").value,
-        payment_amount: document.getElementById("paymentAmount").value,
-        payment_date: document.getElementById("paymentDate").value,
-        phone_number: document.getElementById("phoneNumber").value,
-        comments: document.getElementById("comments").value
+        unit_number: document.getElementById("unit_number").value,   // اصلاح
+        tenant_name: document.getElementById("tenant_name").value,   // اصلاح
+        owner_name: document.getElementById("owner_name").value,     // اصلاح
+        payment_amount: document.getElementById("payment_amount").value, // اصلاح
+        payment_date: document.getElementById("payment_date").value,   // اصلاح
+        phone_number: document.getElementById("phone_number").value,   // اصلاح
+        comments: document.getElementById("comments").value          // اصلاح
     };
 
     fetch("https://script.google.com/macros/s/AKfycbznVUkZ5-Ai9NHnNK-vGLV4H9tgg3Ac6h3EruEpxW7vvy8RuwAa61qbKJUc8BWOcBqRsQ/exec", {
