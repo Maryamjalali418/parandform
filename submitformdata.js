@@ -15,7 +15,7 @@ document.getElementById("dataForm").addEventListener("submit", function(event){
   var formData = new FormData(this);
 
   // آدرس Web App که از Google Apps Script دریافت کردی
-  fetch('https://script.google.com/macros/s/your-script-id/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzGCCImYkNfDygmOi22uxao69-s8jesWZGky7br7DrtOokQY2iwM2NunLxstjl1X3y8XA/exec', {
     method: 'POST',
     body: formData
   })
