@@ -15,6 +15,6 @@ jobs:
       run: npm install
 
     - name: Submit form data to Google Sheets
-      run: node submitformdata.js
+      run: node submitFormData.js
 env:
   WEB_APP_URL: ${{ secrets.WEB_APP_URL}}
