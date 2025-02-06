@@ -17,4 +17,4 @@ jobs:
     - name: Submit form data to Google Sheets
       run: node submitFormData.js
 env:
-  WEB_APP_URL: ${{ secrets.https://script.google.com/macros/s/AKfycbwbFabVQCKVrO5AWBAFt8tnoklqNdnx9sEBdzbpL619/dev }}
+  WEB_APP_URL: ${{ secrets.https://script.google.com/macros/s/AKfycbzGCCImYkNfDygmOi22uxao69-s8jesWZGky7br7DrtOokQY2iwM2NunLxstjl1X3y8XA/exec }}
