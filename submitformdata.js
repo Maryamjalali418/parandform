@@ -1,9 +1,12 @@
-<form id="dataForm">
+<form id="dataForm" enctype="multipart/form-data">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name">
   
   <label for="unitNumber">Unit Number:</label>
   <input type="text" id="unitNumber" name="unitNumber">
+  
+  <label for="file">Upload File:</label>
+  <input type="file" id="file" name="file">
   
   <button type="submit">Submit</button>
 </form>
