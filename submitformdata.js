@@ -5,8 +5,8 @@
   <label for="unitNumber">Unit Number:</label>
   <input type="text" id="unitNumber" name="unitNumber">
   
-  <label for="file">Upload File:</label>
-  <input type="file" id="file" name="file">
+  <label for="fileUpload">Upload File:</label>
+  <input type="file" id="fileUpload" name="fileUpload">
   
   <button type="submit">Submit</button>
 </form>
