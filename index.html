@@ -17,12 +17,13 @@
 
     <script>
       document.getElementById('myForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault();  // جلوگیری از ارسال خودکار فرم
         
         var formData = new FormData();
         formData.append('name', document.getElementById('name').value);
         formData.append('image', document.getElementById('image').files[0]);
 
+        // جایگزین کردن 'YOUR_WEB_APP_URL' با آدرس درست Web App شما
         fetch('https://script.google.com/macros/s/AKfycbxrljN_3alW6CVNNuoBEsPFy59B4hC17XaRYezBm66xcrzbVE9k6uq6e36i7AGD_lFysw/exec', {
           method: 'POST',
           body: formData
