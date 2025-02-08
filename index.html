@@ -8,8 +8,10 @@
     <form id="myForm" enctype="multipart/form-data">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required><br><br>
-      <label for="image">Choose an image:</label>
+
+      <label for="image">Image:</label>
       <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
       <input type="submit" value="Submit">
     </form>
 
@@ -21,7 +23,7 @@
         formData.append('name', document.getElementById('name').value);
         formData.append('image', document.getElementById('image').files[0]);
 
-        fetch('https://script.google.com/macros/s/AKfycbxrljN_3alW6CVNNuoBEsPFy59B4hC17XaRYezBm66xcrzbVE9k6uq6e36i7AGD_lFysw/exec', {  // اینجا URL وب اپ خود را وارد کنید
+        fetch('https://script.google.com/macros/s/AKfycbxrljN_3alW6CVNNuoBEsPFy59B4hC17XaRYezBm66xcrzbVE9k6uq6e36i7AGD_lFysw/exec', {
           method: 'POST',
           body: formData
         })
