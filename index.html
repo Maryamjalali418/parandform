@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>فرم آپلود</title>
-</head>
-<body>
-    <form id="myForm" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="نام"><br>
-        <input type="file" name="file" id="fileInput"><br>
-        <button type="button" onclick="uploadData()">ارسال</button>
+  <body>
+    <h2>فرم ارسال عکس و نام</h2>
+    <form id="userForm">
+      <label for="name">نام:</label><br>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="image">عکس:</label><br>
+      <input type="file" id="image" name="image"><br><br>
+      <input type="submit" value="ارسال">
     </form>
     <script>
-        function uploadData() {
-            var form = document.getElementById("myForm");
-            var formData = new FormData(form);
-
-            fetch("https://script.google.com/macros/s/AKfycbzDT0ZRmjhMtpZYfBli-z1wFDk1NcevChOzRH5AoOGHN7DaaR_BmtadkQ-URiBxN6--AA/exec", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => alert("اطلاعات ارسال شد: " + data.message))
-            .catch(error => console.error("خطا:", error));
-        }
+      document.getElementById("userForm").onsubmit = function(event) {
+        event.preventDefault();
+        var name = document.getElementById("name").value;
+        var image = document.getElementById("image").files[0];
+        google.script.run.processForm(name, image);
+      };
     </script>
-</body>
+  </body>
 </html>
