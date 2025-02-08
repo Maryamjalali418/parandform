@@ -1,39 +1,39 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>فرم آپلود</title>
-</head>
-<body>
-<form id="dataForm" enctype="multipart/form-data">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-  
-  <label for="unitNumber">Unit Number:</label>
-  <input type="text" id="unitNumber" name="unitNumber">
-  
-  <!-- فیلد آپلود فایل -->
-  <label for="fileUpload">Upload File:</label>
-  <input type="file" id="fileUpload" name="fileUpload">
-  
-  <button type="submit">Submit</button>
-</form>
+  <head>
+    <title>Submit Name and Image</title>
+  </head>
+  <body>
+    <h1>Submit Your Name and Image</h1>
+    <form id="myForm" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="image">Choose an image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
 
-<script>
-document.getElementById("dataForm").addEventListener("submit", function(event){
-  event.preventDefault();
+    <script>
+      document.getElementById('myForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = new FormData();
+        formData.append('name', document.getElementById('name').value);
+        formData.append('image', document.getElementById('image').files[0]);
 
-  var formData = new FormData(this);
-
-  // آدرس Web App که از Google Apps Script دریافت کردی
-  fetch('https://script.google.com/macros/s/AKfycbxrljN_3alW6CVNNuoBEsPFy59B4hC17XaRYezBm66xcrzbVE9k6uq6e36i7AGD_lFysw/exec', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    alert("فرم با موفقیت ارسال شد!");
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-});
-</script>
+        fetch('https://script.google.com/macros/s/AKfycbxrljN_3alW6CVNNuoBEsPFy59B4hC17XaRYezBm66xcrzbVE9k6uq6e36i7AGD_lFysw/exec', {  // اینجا URL وب اپ خود را وارد کنید
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          alert('Data submitted successfully');
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error submitting the form');
+        });
+      });
+    </script>
+  </body>
+</html>
